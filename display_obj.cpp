@@ -380,6 +380,75 @@ void displayMesh()
 				glEnd();
 			}
 			break;
+		case 2:   //average normal
+			for(unsigned int i=0; i<myMesh.triangles.size();++i)
+			{
+				glBegin(GL_TRIANGLES);
+				glNormal3f(myMesh.vertices[myMesh.triangles[i].ver_id[0]].normal[0].x,myMesh.vertices[myMesh.triangles[i].ver_id[0]].normal[0].y,myMesh.vertices[myMesh.triangles[i].ver_id[0]].normal[0].z);
+				glVertex3f(myMesh.vertices[myMesh.triangles[i].ver_id[0]].point.x,myMesh.vertices[myMesh.triangles[i].ver_id[0]].point.y,myMesh.vertices[myMesh.triangles[i].ver_id[0]].point.z);
+				glNormal3f(myMesh.vertices[myMesh.triangles[i].ver_id[1]].normal[0].x,myMesh.vertices[myMesh.triangles[i].ver_id[1]].normal[0].y,myMesh.vertices[myMesh.triangles[i].ver_id[1]].normal[0].z);
+				glVertex3f(myMesh.vertices[myMesh.triangles[i].ver_id[1]].point.x,myMesh.vertices[myMesh.triangles[i].ver_id[1]].point.y,myMesh.vertices[myMesh.triangles[i].ver_id[1]].point.z);
+				glNormal3f(myMesh.vertices[myMesh.triangles[i].ver_id[2]].normal[0].x,myMesh.vertices[myMesh.triangles[i].ver_id[2]].normal[0].y,myMesh.vertices[myMesh.triangles[i].ver_id[2]].normal[0].z);
+				glVertex3f(myMesh.vertices[myMesh.triangles[i].ver_id[2]].point.x,myMesh.vertices[myMesh.triangles[i].ver_id[2]].point.y,myMesh.vertices[myMesh.triangles[i].ver_id[2]].point.z);
+				glEnd();
+
+
+			}
+			break;
+		case 3:   //average normal
+			for(unsigned int i=0; i<myMesh.triangles.size();++i)
+			{
+				glBegin(GL_TRIANGLES);
+				glNormal3f(myMesh.vertices[myMesh.triangles[i].ver_id[0]].normal[1].x,myMesh.vertices[myMesh.triangles[i].ver_id[1]].normal[1].y,myMesh.vertices[myMesh.triangles[i].ver_id[0]].normal[1].z);
+				glVertex3f(myMesh.vertices[myMesh.triangles[i].ver_id[0]].point.x,myMesh.vertices[myMesh.triangles[i].ver_id[0]].point.y,myMesh.vertices[myMesh.triangles[i].ver_id[0]].point.z);
+				glNormal3f(myMesh.vertices[myMesh.triangles[i].ver_id[1]].normal[1].x,myMesh.vertices[myMesh.triangles[i].ver_id[1]].normal[1].y,myMesh.vertices[myMesh.triangles[i].ver_id[1]].normal[1].z);
+				glVertex3f(myMesh.vertices[myMesh.triangles[i].ver_id[1]].point.x,myMesh.vertices[myMesh.triangles[i].ver_id[1]].point.y,myMesh.vertices[myMesh.triangles[i].ver_id[1]].point.z);
+				glNormal3f(myMesh.vertices[myMesh.triangles[i].ver_id[2]].normal[1].x,myMesh.vertices[myMesh.triangles[i].ver_id[2]].normal[1].y,myMesh.vertices[myMesh.triangles[i].ver_id[2]].normal[1].z);
+				glVertex3f(myMesh.vertices[myMesh.triangles[i].ver_id[2]].point.x,myMesh.vertices[myMesh.triangles[i].ver_id[2]].point.y,myMesh.vertices[myMesh.triangles[i].ver_id[2]].point.z);
+				glEnd();
+
+
+			}
+			break;
+		case 4:   //average normal
+			for(unsigned int i=0; i<myMesh.triangles.size();++i)
+			{
+				glBegin(GL_TRIANGLES);
+				glNormal3f(myMesh.vertices[myMesh.triangles[i].ver_id[0]].normal[2].x,myMesh.vertices[myMesh.triangles[i].ver_id[0]].normal[2].y,myMesh.vertices[myMesh.triangles[i].ver_id[0]].normal[2].z);
+				glVertex3f(myMesh.vertices[myMesh.triangles[i].ver_id[0]].point.x,myMesh.vertices[myMesh.triangles[i].ver_id[0]].point.y,myMesh.vertices[myMesh.triangles[i].ver_id[0]].point.z);
+				glNormal3f(myMesh.vertices[myMesh.triangles[i].ver_id[1]].normal[2].x,myMesh.vertices[myMesh.triangles[i].ver_id[1]].normal[2].y,myMesh.vertices[myMesh.triangles[i].ver_id[1]].normal[2].z);
+				glVertex3f(myMesh.vertices[myMesh.triangles[i].ver_id[1]].point.x,myMesh.vertices[myMesh.triangles[i].ver_id[1]].point.y,myMesh.vertices[myMesh.triangles[i].ver_id[1]].point.z);
+				glNormal3f(myMesh.vertices[myMesh.triangles[i].ver_id[2]].normal[2].x,myMesh.vertices[myMesh.triangles[i].ver_id[2]].normal[2].y,myMesh.vertices[myMesh.triangles[i].ver_id[2]].normal[2].z);
+				glVertex3f(myMesh.vertices[myMesh.triangles[i].ver_id[2]].point.x,myMesh.vertices[myMesh.triangles[i].ver_id[2]].point.y,myMesh.vertices[myMesh.triangles[i].ver_id[2]].point.z);
+				glEnd();
+			}
+			break;
+		case 5:  //shape edge
+			for(unsigned int i=0; i<myMesh.triangles.size();++i)
+			{
+				if(myMesh.triangles[i].isFlat)
+				{
+				glBegin(GL_TRIANGLES);
+				glNormal3f(myMesh.triangles[i].faceNormal.x,myMesh.triangles[i].faceNormal.y,myMesh.triangles[i].faceNormal.z);
+				glVertex3f(myMesh.vertices[myMesh.triangles[i].ver_id[0]].point.x,myMesh.vertices[myMesh.triangles[i].ver_id[0]].point.y,myMesh.vertices[myMesh.triangles[i].ver_id[0]].point.z);
+				glVertex3f(myMesh.vertices[myMesh.triangles[i].ver_id[1]].point.x,myMesh.vertices[myMesh.triangles[i].ver_id[1]].point.y,myMesh.vertices[myMesh.triangles[i].ver_id[1]].point.z);
+				glVertex3f(myMesh.vertices[myMesh.triangles[i].ver_id[2]].point.x,myMesh.vertices[myMesh.triangles[i].ver_id[2]].point.y,myMesh.vertices[myMesh.triangles[i].ver_id[2]].point.z);
+				glEnd();
+
+				}
+				else
+				{
+				glBegin(GL_TRIANGLES);
+				glNormal3f(myMesh.vertices[myMesh.triangles[i].ver_id[0]].normal[2].x,myMesh.vertices[myMesh.triangles[i].ver_id[0]].normal[2].y,myMesh.vertices[myMesh.triangles[i].ver_id[0]].normal[2].z);
+				glVertex3f(myMesh.vertices[myMesh.triangles[i].ver_id[0]].point.x,myMesh.vertices[myMesh.triangles[i].ver_id[0]].point.y,myMesh.vertices[myMesh.triangles[i].ver_id[0]].point.z);
+				glNormal3f(myMesh.vertices[myMesh.triangles[i].ver_id[1]].normal[2].x,myMesh.vertices[myMesh.triangles[i].ver_id[1]].normal[2].y,myMesh.vertices[myMesh.triangles[i].ver_id[1]].normal[2].z);
+				glVertex3f(myMesh.vertices[myMesh.triangles[i].ver_id[1]].point.x,myMesh.vertices[myMesh.triangles[i].ver_id[1]].point.y,myMesh.vertices[myMesh.triangles[i].ver_id[1]].point.z);
+				glNormal3f(myMesh.vertices[myMesh.triangles[i].ver_id[2]].normal[2].x,myMesh.vertices[myMesh.triangles[i].ver_id[2]].normal[2].y,myMesh.vertices[myMesh.triangles[i].ver_id[2]].normal[2].z);
+				glVertex3f(myMesh.vertices[myMesh.triangles[i].ver_id[2]].point.x,myMesh.vertices[myMesh.triangles[i].ver_id[2]].point.y,myMesh.vertices[myMesh.triangles[i].ver_id[2]].point.z);
+				glEnd();
+				}
+			}
+			break;
 
 	}
 }
@@ -546,6 +615,8 @@ void SpecialKeys(int key, int x, int y)
 		mode=3;
 	if(key=='4')
 		mode=4;
+	if(key=='5')
+		mode=5;
 	if(key == 'z') {
 		camPosZ += kTranslationStep;
 	}
@@ -677,13 +748,12 @@ int main(int argc, char **argv)
 	//
 
 	myMesh.loadFile(argv[1]);
-	myMesh.setFaceNormal();
-
+	setVertexNormal(myMesh);
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowSize(800, 600);
-	glutCreateWindow("B-Spline Curves & Surfaces");
+	glutCreateWindow("Display and simplify Mesh");
 	SetupRC();
 	glutReshapeFunc(ChangeSize);
 	glutDisplayFunc(RenderScene);

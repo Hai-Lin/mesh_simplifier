@@ -55,6 +55,13 @@ Vector3D interpretate(const Vector3D & v1, const Vector3D& v2, float t)
 	return Vector3D(v1.x+t*(v2.x-v1.x), v1.y+t*(v2.y-v1.y),v1.z+t*(v2.z-v1.z));
 }
 
+float degree( Vector3D  v1,  Vector3D  v2 )
+{
+	float cos=(v1^v2)/(v1.Length()*v2.Length());
+	float result = acos (cos) * 180.0 / PI;
+	return result;
+
+}
 bool isVecZero(const Vector3D& v1)
 {
 	if(v1.x==0 && v1.y==0 && v1.z==0)

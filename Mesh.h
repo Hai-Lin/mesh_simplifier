@@ -36,6 +36,8 @@ class Triangle{
 		int id;
 		bool isNormal;
 		bool isNbr;
+		bool nbrFound[3];
+		bool isFlat;
 		Vector3D faceNormal;
 		Triangle(int x=0, int y=0, int z=0, int d=0)
 		{
@@ -43,8 +45,12 @@ class Triangle{
 			ver_id[1]=y;
 			ver_id[2]=z;
 			id=d;
+			isFlat=false;
 			isNormal=false;
 			isNbr=false;
+			for(int i=0;i<=2;++i)
+				nbrFound[i]=false;
+
 		}
 		void displayTriangle();
 };
@@ -53,37 +59,40 @@ class Vertex
 {
 	public:
 		Vector3D point;
-		Vector3D normal[4];   // flat shading
+		Vector3D normal[3]; 
 		// normal1 is average of adjacent trangles
 		// norma2 is average of adjacent trangles, each weighted by its trangle area
 		// normal3 is average of adjacent trangles, each weighted by angle of incident triangle edges
 		int id;
-		bool isNormal[4];
+		bool isSharp;
+		bool isNormal[3];
 		int tri_id;         //id of any triangle the vertex point to
 		Vertex(float x=0.0, float y=0.0, float z=0.0, int _id=0)
 		{
 			id=_id;
 			Vector3D xx(x,y,z);
 			point=xx;
+			isSharp=false;
 			for(int i=0; i<=3;++i)
 				isNormal[i]=false;
 
 		}
 		void displayVertex();
+
 };
 
 class Mesh
 {
 	public:
-
 		vector<Triangle> triangles;
 		vector<Vertex> vertices;
 		Mesh() {}
 		void loadFile(char *fname);
-		void setMeshNormal();
 		void displayMesh();
 		void setFaceNormal();
-
-
+		void findNeighbor();
+		vector<int> faceOfVertex(int vertex);
+		float area(int i);
 };
+void setVertexNormal(Mesh &);
 void StringSplit(string str, string separator, vector<string>* results);

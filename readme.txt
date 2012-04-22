@@ -7,3 +7,6 @@ Type make to compile
 Work both in Mac OS X and clic 
 obj_hl2656 + testfile
 
+1 2 3 4 5 (different normal)
+
+simplify not successfully impelment

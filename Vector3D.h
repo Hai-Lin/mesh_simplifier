@@ -3,6 +3,8 @@
 #include <cmath>
 #include <assert.h>
 #include<iostream>
+#include <math.h>
+#define PI 3.14159265
 
 using namespace std;
 class Vector3D {
@@ -34,7 +36,7 @@ Vector3D normalize (Vector3D& v);
 float distanceVec(const Vector3D& v1, const Vector3D & v2);
 Vector3D operator+ (const Vector3D& v1, const Vector3D& v2);
 Vector3D operator- (const Vector3D& v);
-
+float degree(Vector3D , Vector3D );
 Vector3D operator- (const Vector3D& v1, const Vector3D& v2);
 Vector3D operator* (const Vector3D& v1, float l);
 Vector3D operator* ( float l, const Vector3D & v1);
